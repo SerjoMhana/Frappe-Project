@@ -1,13 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:firstname",
+ "autoname": "LM.#####",
  "creation": "2024-08-30 22:11:40.919613",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "firstname",
+  "first_name",
   "last_name",
+  "full_name",
+  "column_break_ubci",
   "phone",
   "address",
   "is_membership_valid"
@@ -16,7 +18,9 @@
   {
    "fieldname": "last_name",
    "fieldtype": "Data",
-   "label": "Last Name"
+   "in_list_view": 1,
+   "label": "Last Name",
+   "reqd": 1
   },
   {
    "fieldname": "phone",
@@ -35,19 +39,31 @@
    "label": "is Membership Valid"
   },
   {
-   "fieldname": "firstname",
+   "fieldname": "full_name",
    "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ubci",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "First_Name",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 22:16:36.056025",
+ "modified": "2024-09-02 20:44:59.007908",
  "modified_by": "Administrator",
  "module": "Library Management System",
  "name": "Library Member",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

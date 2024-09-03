@@ -1,46 +1,28 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "LMS.#####",
  "creation": "2024-08-31 08:57:34.753828",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_sdej",
-  "member_first_name",
-  "member_last_name",
+  "library_member",
+  "member_full_name",
+  "column_break_krco",
   "from_date",
   "to_date",
-  "paid"
+  "paid",
+  "amended_from"
  ],
  "fields": [
   {
-   "fieldname": "section_break_sdej",
-   "fieldtype": "Link",
-   "label": "Library Member",
-   "options": "Library Member"
-  },
-  {
-   "fetch_from": "section_break_sdej.firstname",
-   "fieldname": "member_first_name",
-   "fieldtype": "Data",
-   "label": "Member First Name",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "section_break_sdej.last_name",
-   "fieldname": "member_last_name",
-   "fieldtype": "Data",
-   "label": "Member Last Name",
-   "read_only": 1
-  },
-  {
    "fieldname": "from_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "From Date"
   },
   {
    "fieldname": "to_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "To Date"
   },
   {
@@ -48,14 +30,43 @@
    "fieldname": "paid",
    "fieldtype": "Check",
    "label": "Paid"
+  },
+  {
+   "fieldname": "column_break_krco",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Library Membership",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "library_member.full_name",
+   "fieldname": "member_full_name",
+   "fieldtype": "Data",
+   "label": "Member Full Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "library_member",
+   "fieldtype": "Link",
+   "label": "Library Member",
+   "options": "Library Member"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-08-31 09:03:39.933672",
+ "modified": "2024-09-01 13:54:06.311170",
  "modified_by": "Administrator",
  "module": "Library Management System",
  "name": "Library Membership",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

@@ -8,6 +8,7 @@
   "section_break_tisv",
   "author",
   "status",
+  "column_break_vukj",
   "publisher",
   "description",
   "image",
@@ -17,7 +18,9 @@
   {
    "fieldname": "section_break_tisv",
    "fieldtype": "Data",
-   "label": "Article Name"
+   "in_list_view": 1,
+   "label": "Article Name",
+   "reqd": 1
   },
   {
    "fieldname": "author",
@@ -27,8 +30,10 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Status",
-   "options": "Active,Inactive,Discontinued"
+   "options": "Active\nInactive\nDiscontinued",
+   "reqd": 1
   },
   {
    "fieldname": "publisher",
@@ -42,18 +47,23 @@
   },
   {
    "fieldname": "image",
-   "fieldtype": "Attach",
+   "fieldtype": "Attach Image",
    "label": "Image"
   },
   {
    "fieldname": "isbn",
    "fieldtype": "Data",
    "label": "ISBN"
+  },
+  {
+   "fieldname": "column_break_vukj",
+   "fieldtype": "Column Break"
   }
  ],
+ "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-30 20:54:11.481891",
+ "modified": "2024-09-02 20:43:50.405030",
  "modified_by": "Administrator",
  "module": "Library Management System",
  "name": "Article",
@@ -70,6 +80,27 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "librarin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Library Member",
+   "share": 1
   }
  ],
  "sort_field": "modified",
