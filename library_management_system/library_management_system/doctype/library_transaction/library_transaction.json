@@ -6,19 +6,15 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "transaction_type",
-  "transaction_date",
+  "type",
+  "date",
   "library_member",
   "column_break_fhbj",
   "article",
-  "article_name"
+  "article_name",
+  "amended_from"
  ],
  "fields": [
-  {
-   "fieldname": "transaction_date",
-   "fieldtype": "Data",
-   "label": "Transaction Date"
-  },
   {
    "fieldname": "article",
    "fieldtype": "Link",
@@ -29,7 +25,8 @@
    "fetch_from": "article.section_break_tisv",
    "fieldname": "article_name",
    "fieldtype": "Data",
-   "label": "Article Name"
+   "label": "Article Name",
+   "read_only": 1
   },
   {
    "fieldname": "library_member",
@@ -38,19 +35,35 @@
    "options": "Library Member"
   },
   {
-   "fieldname": "transaction_type",
-   "fieldtype": "Select",
-   "label": "Transaction Type",
-   "options": "issue\nReturn"
-  },
-  {
    "fieldname": "column_break_fhbj",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Library Transaction",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Transaction Type",
+   "options": "Issue\nReturn"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Transaction Date"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-09-02 20:52:19.975430",
+ "modified": "2024-09-04 04:26:00.469205",
  "modified_by": "Administrator",
  "module": "Library Management System",
  "name": "Library Transaction",

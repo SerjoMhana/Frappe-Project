@@ -12,7 +12,8 @@
   "column_break_ubci",
   "phone",
   "address",
-  "is_membership_valid"
+  "is_membership_valid",
+  "amended_from"
  ],
  "fields": [
   {
@@ -24,7 +25,7 @@
   },
   {
    "fieldname": "phone",
-   "fieldtype": "Data",
+   "fieldtype": "Phone",
    "label": "Phone"
   },
   {
@@ -36,7 +37,8 @@
    "default": "0",
    "fieldname": "is_membership_valid",
    "fieldtype": "Check",
-   "label": "is Membership Valid"
+   "label": "is Membership Valid",
+   "read_only": 1
   },
   {
    "fieldname": "full_name",
@@ -55,11 +57,22 @@
    "label": "First_Name",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Library Member",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-09-02 20:44:59.007908",
+ "modified": "2024-09-04 05:37:24.106412",
  "modified_by": "Administrator",
  "module": "Library Management System",
  "name": "Library Member",

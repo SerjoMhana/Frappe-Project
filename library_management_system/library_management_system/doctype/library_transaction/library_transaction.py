@@ -15,9 +15,9 @@ class LibraryTransaction(Document):
 
         elif self.type == "Return":
             self.validate_return()
-            # set the article status to be Available
+            # set the article status to be Active
             article = frappe.get_doc("Article", self.article)
-            article.status = "Available"
+            article.status = "Active"
             article.save()
 
     def validate_issue(self):
@@ -30,7 +30,7 @@ class LibraryTransaction(Document):
     def validate_return(self):
         article = frappe.get_doc("Article", self.article)
         # article cannot be returned if it is not issued first
-        if article.status == "Available":
+        if article.status == "Active":
             frappe.throw("Article cannot be returned without being issued first")
 
     def validate_maximum_limit(self):
@@ -44,14 +44,36 @@ class LibraryTransaction(Document):
 
     def validate_membership(self):
         # check if a valid membership exist for this library member
-        valid_membership = frappe.db.exists(
-            "Library Membership",
-            {
-                "library_member": self.library_member,
-                "docstatus": DocStatus.submitted(),
-                "from_date": ("<", self.date),
-                "to_date": (">", self.date),
-            },
-        )
-        if not valid_membership:
+        existing_membership = frappe.db.exists(
+                "Library Membership",
+                {
+                    "library_member": self.library_member,
+                    "docstatus": DocStatus.submitted(),
+                    "name": ("!=", self.name), 
+                },
+            )
+        if not existing_membership:
             frappe.throw("The member does not have a valid membership")
+
+
+
+def __init__(self, *args, **kwargs):
+        super(LibraryTransaction, self).__init__(*args, **kwargs)
+        self.fields_dict["library_member"].get_query = self.get_valid_library_members
+
+        def get_valid_library_members(self, doctype, txt, searchfield, start, page_len, filters):
+            filters = {"is_membership_valid": 1} 
+            if txt:
+                filters["name"] = ("like", f"%{txt}%")  # Apply search filter only if txt is provided
+        return frappe.db.get_all(
+            "Library Member",
+            filters=filters,
+            fields=["name as value", "member_name as label"], 
+            limit_start=start,
+            limit_page_length=page_len,
+            order_by="name",
+        )
+
+
+
+

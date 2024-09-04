@@ -32,7 +32,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Active\nInactive\nDiscontinued",
+   "options": "Active\nIssued\nDiscontinued",
    "reqd": 1
   },
   {
@@ -63,7 +63,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-02 20:43:50.405030",
+ "modified": "2024-09-04 02:40:27.498334",
  "modified_by": "Administrator",
  "module": "Library Management System",
  "name": "Article",
