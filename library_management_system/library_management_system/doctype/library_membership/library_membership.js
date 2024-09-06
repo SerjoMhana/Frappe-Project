@@ -1,8 +1,11 @@
-// Copyright (c) 2024, seraj and contributors
-// For license information, please see license.txt
-
-// frappe.ui.form.on("Library Membership", {
-// 	refresh(frm) {
-
-// 	},
-// });
+frappe.ui.form.on('Library Membership', {
+    refresh: function(frm) {
+        frm.set_query('library_member', function() {
+            return {
+                filters: {
+                    is_membership_valid: 0
+                }
+            };
+        });
+    }
+});
