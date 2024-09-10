@@ -9,6 +9,7 @@
   "library_member",
   "member_full_name",
   "column_break_krco",
+  "membership_type",
   "from_date",
   "to_date",
   "paid",
@@ -57,12 +58,18 @@
    "fieldtype": "Link",
    "label": "Library Member",
    "options": "Library Member"
+  },
+  {
+   "fieldname": "membership_type",
+   "fieldtype": "Link",
+   "label": "Membership type",
+   "options": "Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-04 05:37:41.957705",
+ "modified": "2024-09-08 13:08:17.481870",
  "modified_by": "Administrator",
  "module": "Library Management System",
  "name": "Library Membership",

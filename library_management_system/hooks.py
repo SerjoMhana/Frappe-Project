@@ -235,7 +235,11 @@ fixtures = [
             [
                 "name", "in", [
                     "Customer-custom_is_library_member",
-                    "Customer-custom_lms_library_member"
+                    "Customer-custom_lms_library_member",
+                    "Item-custom_lms", 
+                    "Item-library_member", 
+                    "Item-membership_setting", 
+                    "Item-membership_duration"
                 ]
             ]
         ]
